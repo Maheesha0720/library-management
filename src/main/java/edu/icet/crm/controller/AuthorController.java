@@ -19,26 +19,24 @@ public class AuthorController {
 
     @PostMapping("/save")
     public String saveAuthor(@RequestBody AuthorSaveDto authorSaveDto){
-        String authorname = authorService.addAuthor(authorSaveDto);
+        authorService.addAuthor(authorSaveDto);
         return "Added success...";
 
     }
     @GetMapping("/getAllAuthor")
     public List<AutorDto> getAllAuthor(){
-       List<AutorDto> allAuthors= authorService.getAllAuthor();
-       return allAuthors;
+        return authorService.getAllAuthor();
     }
 
     @PutMapping("/update")
     public String updateAuthor(@RequestBody AuthorUpdateDto authorUpdateDto){
 
-        String authorname=authorService.updateAuthor(authorUpdateDto);
-        return authorname;
+        return authorService.updateAuthor(authorUpdateDto);
     }
     @DeleteMapping("/delete/{id}")
     public String deleteAuthor(@PathVariable(value = "id")int id){
 
-        String authorname=authorService.deleteAuthor(id);
+       authorService.deleteAuthor(id);
         return "Author deleted";
     }
 }
