@@ -2,7 +2,7 @@ package edu.icet.crm.controller;
 
 import edu.icet.crm.dto.author.AuthorSaveDto;
 import edu.icet.crm.dto.author.AuthorUpdateDto;
-import edu.icet.crm.dto.author.AutorDto;
+import edu.icet.crm.dto.author.AuthorDto;
 import edu.icet.crm.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +24,7 @@ public class AuthorController {
 
     }
     @GetMapping("/getAllAuthor")
-    public List<AutorDto> getAllAuthor(){
+    public List<AuthorDto> getAllAuthor(){
         return authorService.getAllAuthor();
     }
 

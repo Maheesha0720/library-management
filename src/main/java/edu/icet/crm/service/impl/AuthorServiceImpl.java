@@ -2,7 +2,7 @@ package edu.icet.crm.service.impl;
 
 import edu.icet.crm.dto.author.AuthorSaveDto;
 import edu.icet.crm.dto.author.AuthorUpdateDto;
-import edu.icet.crm.dto.author.AutorDto;
+import edu.icet.crm.dto.author.AuthorDto;
 import edu.icet.crm.entity.Author;
 import edu.icet.crm.repository.AuthorRepo;
 import edu.icet.crm.service.AuthorService;
@@ -28,19 +28,19 @@ public class AuthorServiceImpl implements AuthorService{
     }
 
     @Override
-    public List<AutorDto> getAllAuthor() {
+    public List<AuthorDto> getAllAuthor() {
 
         List<Author> getAuthors=authorRepo.findAll();
-        List<AutorDto> autorDtoList=new ArrayList<>();
+        List<AuthorDto> authorDtoList =new ArrayList<>();
 
         for (Author author:getAuthors){
-            AutorDto autorDto=new AutorDto(
+            AuthorDto authorDto =new AuthorDto(
                     author.getAuthorId(),
                     author.getAuthorName()
             );
-            autorDtoList.add(autorDto);
+            authorDtoList.add(authorDto);
         }
-        return autorDtoList;
+        return authorDtoList;
     }
 
     @Override
