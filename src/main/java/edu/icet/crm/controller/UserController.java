@@ -1,12 +1,8 @@
 package edu.icet.crm.controller;
 
-import edu.icet.crm.dto.author.AuthorDto;
-import edu.icet.crm.dto.author.AuthorSaveDto;
-import edu.icet.crm.dto.author.AuthorUpdateDto;
 import edu.icet.crm.dto.user.UserDto;
 import edu.icet.crm.dto.user.UserSaveDto;
 import edu.icet.crm.dto.user.UserUpdateDto;
-import edu.icet.crm.service.AuthorService;
 import edu.icet.crm.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -42,5 +38,4 @@ public class UserController {
         userService.deleteUser(id);
         return "User deleted";
     }
-
 }
