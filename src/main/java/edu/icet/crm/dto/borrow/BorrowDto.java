@@ -14,6 +14,7 @@ import java.time.LocalDate;
 
 public class BorrowDto {
     private int id;
+    private String status;
     private Book book;
     private User user;
     @JsonFormat(pattern = "yyyy-MM-dd")

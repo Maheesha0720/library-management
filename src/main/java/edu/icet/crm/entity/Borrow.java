@@ -17,6 +17,7 @@ public class Borrow {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    private String status;
 
     @ManyToOne
     @JoinColumn(name = "book_id")
@@ -28,7 +29,8 @@ public class Borrow {
     private LocalDate borrowDate;
     private LocalDate returnDate;
 
-    public Borrow(Book book, User user, LocalDate borrowDate, LocalDate returnDate) {
+    public Borrow(String status, Book book, User user, LocalDate borrowDate, LocalDate returnDate) {
+        this.status = status;
         this.book = book;
         this.user = user;
         this.borrowDate = borrowDate;

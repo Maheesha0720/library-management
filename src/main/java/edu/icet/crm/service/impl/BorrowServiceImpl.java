@@ -1,8 +1,9 @@
 package edu.icet.crm.service.impl;
 
-import edu.icet.crm.dto.book.BookDto;
+import edu.icet.crm.dto.book.BookUpdateDto;
 import edu.icet.crm.dto.borrow.BorrowDto;
 import edu.icet.crm.dto.borrow.BorrowSaveDto;
+import edu.icet.crm.dto.borrow.BorrowUpdateDto;
 import edu.icet.crm.entity.Book;
 import edu.icet.crm.entity.Borrow;
 import edu.icet.crm.repository.BookRepo;
@@ -28,6 +29,7 @@ public class BorrowServiceImpl implements BorrowService {
     public void addBorrow(BorrowSaveDto borrowSaveDto) {
 
         borrowRepo.save(new Borrow(
+                borrowSaveDto.getStatus(),
                 bookRepo.getById(borrowSaveDto.getBookId()),
                 userRepo.getById(borrowSaveDto.getUserId()),
                 borrowSaveDto.getBorrowDate(),
@@ -44,6 +46,7 @@ public class BorrowServiceImpl implements BorrowService {
         for (Borrow borrow:borrows){
             borrowDtoList.add(new BorrowDto(
                     borrow.getId(),
+                    borrow.getStatus(),
                     borrow.getBook(),
                     borrow.getUser(),
                     borrow.getBorrowDate(),
@@ -53,5 +56,21 @@ public class BorrowServiceImpl implements BorrowService {
 
         }
         return borrowDtoList;
+    }
+
+    @Override
+    public String updateBorrowStatus(BorrowUpdateDto borrowUpdateDto) {
+
+            if (borrowRepo.existsById(borrowUpdateDto.getId())) {
+
+                Borrow borrow = borrowRepo.getById(borrowUpdateDto.getId());
+                borrow.setStatus(borrowUpdateDto.getStatus());
+
+                borrowRepo.save(borrow);
+
+            }else {
+                System.out.println("Borrow ID not exist...!!");
+            }
+            return null;
     }
 }

@@ -1,11 +1,8 @@
 package edu.icet.crm.controller;
 
-import edu.icet.crm.dto.author.AuthorDto;
-import edu.icet.crm.dto.author.AuthorSaveDto;
-import edu.icet.crm.dto.author.AuthorUpdateDto;
 import edu.icet.crm.dto.borrow.BorrowDto;
 import edu.icet.crm.dto.borrow.BorrowSaveDto;
-import edu.icet.crm.service.AuthorService;
+import edu.icet.crm.dto.borrow.BorrowUpdateDto;
 import edu.icet.crm.service.BorrowService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -31,5 +28,10 @@ public class BorrowController {
         return borrowService.getAllBorrows();
     }
 
+    @PutMapping("/update")
+    public String updateBorrowStatus(@RequestBody BorrowUpdateDto borrowUpdateDto){
+
+        return borrowService.updateBorrowStatus(borrowUpdateDto);
+    }
 
 }

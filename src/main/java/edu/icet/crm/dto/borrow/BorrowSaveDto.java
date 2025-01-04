@@ -12,6 +12,7 @@ import java.time.LocalDate;
 @Data
 
 public class BorrowSaveDto {
+    private String status;
     private int bookId;
     private int userId;
     private LocalDate borrowDate;
