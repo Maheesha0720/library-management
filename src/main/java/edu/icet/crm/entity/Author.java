@@ -11,12 +11,11 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-
 @Entity
 @Table(name = "author")
 public class Author {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int authorId;
     private String authorName;
 

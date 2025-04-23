@@ -16,7 +16,7 @@ import java.util.Set;
 @Table(name = "publisher")
 public class Publisher {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int publisherId;
     private String publisherName;
 
